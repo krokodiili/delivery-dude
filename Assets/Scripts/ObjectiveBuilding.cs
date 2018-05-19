@@ -26,10 +26,12 @@ public class ObjectiveBuilding : MonoBehaviour {
     public void CompleteCurrentBuildining()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().SetAllowMovement(true);
+        gameObject.GetComponent<AudioSource>().Stop();
     }
     
     private void LoadBuildingInside()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         buildingInsideGO.GetComponent<CurrentBuilding>().SetCurrentBuilding(gameObject.GetComponent<ObjectiveBuilding>());
 
         buildingInsideGO.SetActive(true);

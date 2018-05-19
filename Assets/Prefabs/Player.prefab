@@ -120,10 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraHeight: 10
-  movementSpeedX: 0.08
-  movementSpeedY: 0.08
-  runningSpeedX: 0.15
-  runningSpeedY: 0.15
+  movementSpeedX: 0.05
+  movementSpeedY: 0.05
+  runningSpeedX: 0.1
+  runningSpeedY: 0.1
 --- !u!114 &114062085179289058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3a21a63a77ba8489ba9b4253ad2d33ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
