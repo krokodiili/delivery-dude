@@ -8,64 +8,155 @@ public class PlayerMovement : MonoBehaviour {
     public Animator pAnim;
     public Transform mainCamera;
 
+    private bool allowMovement = true;
+
     private void FixedUpdate()
     {
-        MovePlayer();
+        MoveCameraPosition();
+
+        if (allowMovement == true)
+        {
+            MovePlayer();
+        }
     }
 
-    // Simple movement of 8 directions, controlled with WASD
+    public void SetAllowMovement(bool value)
+    {
+        allowMovement = value;
+    }
+
+    // Sets camera position to player's position
+    private void MoveCameraPosition()
+    {
+        mainCamera.position = transform.position + new Vector3(0, 0, -pData.cameraHeight);
+    }
+
+    // Simple movement and rotation of the character gameobject with 8 directions, controlled with WASD. When pressing left shift, the character runs
     private void MovePlayer()
     {
-        mainCamera.position = transform.position + new Vector3(0,0,-pData.cameraHeight);
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             pAnim.SetBool("Moving", true);
 
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                pAnim.SetBool("Running", true);
+            }
+            else
+            {
+                pAnim.SetBool("Running", false);
+            }
+
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
             {
-                transform.position += new Vector3(-pData.movementSpeedX, pData.movementSpeedY, 0);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position += new Vector3(-pData.runningSpeedX, pData.runningSpeedY, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(-pData.movementSpeedX, pData.movementSpeedY, 0);
+                }
+
                 transform.localEulerAngles = new Vector3(0, 0, 45f);
             }
             else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
             {
-                transform.position += new Vector3(pData.movementSpeedX, pData.movementSpeedY, 0);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position += new Vector3(pData.runningSpeedX, pData.runningSpeedY, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(pData.movementSpeedX, pData.movementSpeedY, 0);
+                }
+                
                 transform.localEulerAngles = new Vector3(0, 0, 315f);
             }
             else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
             {
-                transform.position += new Vector3(-pData.movementSpeedX, -pData.movementSpeedY, 0);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position += new Vector3(-pData.runningSpeedX, -pData.runningSpeedY, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(-pData.movementSpeedX, -pData.movementSpeedY, 0);
+                }
+
                 transform.localEulerAngles = new Vector3(0, 0, 135f);
             }
             else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
             {
-                transform.position += new Vector3(pData.movementSpeedX, -pData.movementSpeedY, 0);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position += new Vector3(pData.runningSpeedX, -pData.runningSpeedY, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(pData.movementSpeedX, -pData.movementSpeedY, 0);
+                }
+                
                 transform.localEulerAngles = new Vector3(0, 0, 225f);
             }
             else if (Input.GetKey(KeyCode.W))
             {
-                transform.position += new Vector3(0, pData.movementSpeedY, 0);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position += new Vector3(0, pData.runningSpeedY, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(0, pData.movementSpeedY, 0);
+                }
+                
                 transform.localEulerAngles = new Vector3(0, 0, 0);
             }
             else if (Input.GetKey(KeyCode.A))
             {
-                transform.position += new Vector3(-pData.movementSpeedX, 0, 0);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position += new Vector3(-pData.runningSpeedX, 0, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(-pData.movementSpeedX, 0, 0);
+                }
+                
                 transform.localEulerAngles = new Vector3(0, 0, 90f);
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                transform.position += new Vector3(0, -pData.movementSpeedY, 0);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position += new Vector3(0, -pData.runningSpeedY, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(0, -pData.movementSpeedY, 0);
+                }
+                
                 transform.localEulerAngles = new Vector3(0, 0, 180f);
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                transform.position += new Vector3(pData.movementSpeedX, 0, 0);
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position += new Vector3(pData.runningSpeedX, 0, 0);
+                }
+                else
+                {
+                    transform.position += new Vector3(pData.movementSpeedX, 0, 0);
+                }
+                
                 transform.localEulerAngles = new Vector3(0, 0, 270);
             }
         }
         else
         {
             pAnim.SetBool("Moving", false);
+            pAnim.SetBool("Running", false);
         }
     }
 }
