@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour {
 
     public void SetAllowMovement(bool value)
     {
+        pAnim.SetBool("Moving", false);
+        pAnim.SetBool("Running", false);
         allowMovement = value;
     }
 
