@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: cb76a98805b03421c8a2ceb0326225e3
+guid: ead1de6c763f74cf7a1c3795682ae8c5
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: roadNEWS_0
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -39,7 +38,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,43 +102,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: roadNEWS_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -65.815605, y: -128}
-        - {x: -66.1434, y: -68.13838}
-        - {x: -128, y: -68.79683}
-        - {x: -128, y: 68.94374}
-        - {x: -66.73893, y: 68.08887}
-        - {x: -66.82427, y: 128}
-        - {x: 69.34595, y: 126.08354}
-        - {x: 68.78827, y: 67.796555}
-        - {x: 128, y: 67.74484}
-        - {x: 128, y: -67.364716}
-        - {x: 68.41292, y: -67.92664}
-        - {x: 69.34595, y: -128}
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15daf6c8ef5c84bc6877ec8ef4e72e3d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2561806c3f2b34d3a806a8a5f119dd83
+    spriteID: 
     vertices: []
     indices: 
     edges: []
